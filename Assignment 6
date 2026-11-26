@@ -1,1 +1,38 @@
+#include <stdio.h>
 
+unsigned long long factorialRecursive(int n)
+{
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorialRecursive(n - 1);
+}
+
+int main()
+{
+    int n, i;
+    unsigned long long fact = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n < 0)
+    {
+        printf("Factorial is not defined for negative numbers.");
+        return 0;
+    }
+
+    /* Factorial without recursion */
+    for (i = 1; i <= n; i++)
+    {
+        fact = fact * i;
+    }
+
+    printf("\nFactorial without recursion = %llu", fact);
+
+    /* Factorial with recursion */
+    printf("\nFactorial with recursion = %llu",
+           factorialRecursive(n));
+
+    return 0;
+}
